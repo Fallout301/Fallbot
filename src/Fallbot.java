@@ -5,11 +5,18 @@ import org.mariadb.jdbc.*;
  * Created by Fallout301 on 3/14/14.
  */
 public class Fallbot extends PircBot {
+
     String Name = "Fallbot301";
 
     public Fallbot(){
         this.setName(Name);
     }
+
+    @Override
+    protected void onJoin(String channel, String sender, String login, String hostname) {
+
+    }
+
     public void onMessage(String channel, String sender,
                           String login, String hostname, String message) {
         //Eh, why not.
@@ -26,15 +33,15 @@ public class Fallbot extends PircBot {
             }
         }
         if(message.equalsIgnoreCase("!join")& channel.contains(getNick().toLowerCase())){
-            sendMessage(channel,"I shall arrive shortly!");
+            sendMessage(channel, "I shall arrive shortly!");
             try{
                 wait(1,1);
                 }catch(Exception e){
                     joinChannel("#"+sender.toLowerCase());
                     }
 
-
                 }
 
             }
+
         }

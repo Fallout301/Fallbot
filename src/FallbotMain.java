@@ -19,7 +19,7 @@ public class FallbotMain {
         if(Password == ""){
             bot.connect(Server,Port);
         }
-        // Join the #pircbot channel.
+        // Join the #fallbot301 channel.
         bot.joinChannel("#fallbot301");
 
     }
