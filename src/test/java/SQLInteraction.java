@@ -1,3 +1,6 @@
+/**
+ * Created by fallout301 on 10/21/14.
+ */
 import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -7,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SQLInteraction
+/**public class SQLInteraction
 {
     public static Connection con = null;
     public static Statement st = null;
@@ -62,4 +65,4 @@ public class SQLInteraction
     public static void editCom()
     {
     }
-}
+}**/
