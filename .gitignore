@@ -1,9 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 .metadata
-Fallbot.eml
-Fallbot.userlibraries
+fallbot.Fallbot.eml
+fallbot.Fallbot.userlibraries
 .classpath
-Fallbot.iml
+fallbot.Fallbot.iml
 .project
 out

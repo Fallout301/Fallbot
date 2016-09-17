@@ -5,7 +5,7 @@
  *
  * Created by Fallout301 on 10/21/14.
  **/
-
+package fallbot;
 import java.sql.*;
 
  public class SQLInteraction
@@ -14,12 +14,12 @@ import java.sql.*;
  private  Statement st = null;
  private  ResultSet rs = null;
  private  PreparedStatement ps = null;
- private  String user = "Fallbot";
- private  String password = "Fallbot";
+ private  String user = "fallbot.Fallbot";
+ private  String password = "fallbot.Fallbot";
  private  String url = "jdbc:mariadb://localhost:3306/fallbot301?user=" + user + "&password=" + password;
  private  String TMessage = null;
 
-        //This method initializes the connection to the databsse.
+        //This method initializes the connection to the database.
      public void initConnection() throws SQLException{
      try {
          con = DriverManager.getConnection(url);

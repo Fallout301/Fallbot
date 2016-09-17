@@ -1,4 +1,4 @@
-/**
+package fallbot; /**
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -23,7 +23,7 @@ public class FallbotMain {
                 .addCapHandler(new EnableCapHandler("twitch.tv/membership"))
                 .addCapHandler(new EnableCapHandler("twitch.tv/tags"))
                 .addCapHandler(new EnableCapHandler("twitch.tv/commands"))
-                .addServer(Server)
+                .addServer(Server, Port)
                 .setName("fallbot301")
                 .setName("fallbot301")
                 .setServerPassword(Password)
