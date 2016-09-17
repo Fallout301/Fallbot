@@ -13,8 +13,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 **/
 
-public class TTVJSONHandler{
-
+class TTVJSONHandler{
+    //TODO Learn GSON and properly talk to twitch via json. Then write class.
     // EVENTUALLY this will probe twitch for Moderators and other user ranks.
 /**
     public String getUptime(String Channel) throws MalformedURLException {

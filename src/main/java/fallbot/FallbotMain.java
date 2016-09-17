@@ -15,8 +15,10 @@ public class FallbotMain {
     public static void main(String args[]) throws Exception{
 
         Integer Port = 6667;
-        String Password = "oauth:ol6pqomzkle3o8gmbz7uxgxmgavxrt";
+        String Password = "";
         String Server = "irc.twitch.tv";
+
+        //Builds the bot, enables options for the bot.
         Configuration config = new Configuration.Builder()
                 .setAutoNickChange(false)
                 .setCapEnabled(true)

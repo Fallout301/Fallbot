@@ -14,8 +14,8 @@ import org.pircbotx.hooks.events.MessageEvent;
 
 public class Fallbot extends ListenerAdapter{
     public String Owner = "Fallout301";
-    TTVJSONHandler JSON = new TTVJSONHandler();
-    SQLInteraction SQLConnection = new SQLInteraction();
+    private TTVJSONHandler JSON = new TTVJSONHandler();
+    private SQLInteraction SQLConnection = new SQLInteraction();
     public Channel Chan;
 
     /** I guess this should be obvious, but basically this fires when bot joins a channel
@@ -52,21 +52,27 @@ public class Fallbot extends ListenerAdapter{
             event.respond("On My Way!");
             String[] parts = event.getMessage().split(" ");
             event.getBot().sendIRC().joinChannel(parts[1].toLowerCase());
-
+          //TODO Make the rank command read the actual user rank, needs TTVJSONHandler first.
         } else if (event.getMessage().toLowerCase().startsWith("!rank")) {
 
             String Rank = "";
             //if(event.getUser().toString().toLowerCase() ==)
-            if(event.getUser().toString().toLowerCase().equals(Owner.toLowerCase())){
+            if(event.getUser().toString().equalsIgnoreCase(Owner)){
                 event.respond("Your rank is: " + Rank + ". You are also my creator.");
             }
 
         } /**else if (event.getMessage().toLowerCase().startsWith("!uptime")) {
                 event.getChannel().send().message(JSON.getUptime(Chan.getName()));
 
-        }**/ else if (event.getMessage().toLowerCase().startsWith("!dismiss")) {
-            if(event.getUser().toString().toLowerCase().equals(event.getChannel().getOwners().toString()));
+        }**/
 
+        //Leave the dang channel.
+        else if (event.getMessage().toLowerCase().startsWith("!dismiss")) {
+            if(event.getUser().toString().equalsIgnoreCase(event.getChannel().getOwners().toString())){
+             event.getBot().sendRaw().rawLine("PART"+Chan.getName());
+            }
+
+            //If NONE of the previous hardcoded commands are right, THEN go to the MySQL database.
         } else if (event.getMessage().toLowerCase().startsWith("!")) {
             String reply = SQLConnection.returnCom(Chan.getName().toLowerCase().replace("#",""), event.getMessage().toLowerCase() );
                 if(reply!=null) {
@@ -76,6 +82,7 @@ public class Fallbot extends ListenerAdapter{
         }
 
     }
+    //TODO Get badges for users by overriding onUnknown, when possible with PircBotX, if JSON approach doesn't work.
    /** @Override
     //Attempt to get the badges of the user from each userstate event
     public void onUnknown(UnknownEvent event) throws Exception{

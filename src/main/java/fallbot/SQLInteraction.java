@@ -8,14 +8,14 @@
 package fallbot;
 import java.sql.*;
 
- public class SQLInteraction
+ class SQLInteraction
  {
  private  Connection con = null;
  private  Statement st = null;
  private  ResultSet rs = null;
  private  PreparedStatement ps = null;
- private  String user = "fallbot.Fallbot";
- private  String password = "fallbot.Fallbot";
+ private  String user = "Fallbot";
+ private  String password = "Fallbot";
  private  String url = "jdbc:mariadb://localhost:3306/fallbot301?user=" + user + "&password=" + password;
  private  String TMessage = null;
 
@@ -32,7 +32,7 @@ import java.sql.*;
  }
 
     //This method checks if there is a table for the channel in the database. If not, then create one. If there's an issue, throw an error.
- public String createTable(String Channel) {
+    String createTable(String Channel) {
     try {
         initConnection();
         String Chans = Channel.replace("#", "");
@@ -71,7 +71,7 @@ import java.sql.*;
         e.printStackTrace();
     }
  }
-
+    //TODO Being able to delete entries from the database can be rather helpful... just sayin.
  public void removeCom(String Channel, String MCom) {
      //This method will eventually remove entries from the database.
  }
@@ -103,7 +103,7 @@ import java.sql.*;
  }
 
  //Returns the data from an entry in the database if it exists.
- public String returnCom(String Channel, String MCom){
+ String returnCom(String Channel, String MCom){
     try{
         int id = 0;
         String com = "";
